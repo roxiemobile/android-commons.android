@@ -7,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.1.1'
 
         // Kotlin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
@@ -37,7 +37,6 @@ ext {
     // Shared Dependencies
     ANDROID_SUPPORT_VERSION = '27.1.1'
     GSON_VERSION = '2.8.2'
-    JETBRAINS_ANNOTATIONS_VERSION = '16.0.1'
     JUNIT_VERSION = '4.12'
     STREAM_VERSION = '1.2.0'
 }

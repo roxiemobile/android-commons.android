@@ -38,10 +38,6 @@ dependencies {
     final GSON_VERSION = rootProject.ext.GSON_VERSION
     api "com.google.code.gson:gson:$GSON_VERSION"
 
-    // JetBrains Java Annotations
-    final JETBRAINS_ANNOTATIONS_VERSION = rootProject.ext.JETBRAINS_ANNOTATIONS_VERSION
-    api "org.jetbrains:annotations:$JETBRAINS_ANNOTATIONS_VERSION"
-
     // Stream
     final STREAM_VERSION = rootProject.ext.STREAM_VERSION
     implementation "com.annimon:stream:$STREAM_VERSION"
