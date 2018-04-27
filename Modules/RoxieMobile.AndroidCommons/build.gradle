@@ -1,5 +1,5 @@
 buildscript {
-    ext.KOTLIN_VERSION = '1.2.10'
+    ext.KOTLIN_VERSION = '1.2.30'
 
     repositories {
         jcenter()
@@ -37,6 +37,7 @@ ext {
     // Shared Dependencies
     ANDROID_SUPPORT_VERSION = '27.0.2'
     GSON_VERSION = '2.8.2'
+    JETBRAINS_ANNOTATIONS_VERSION = '16.0.1'
     JUNIT_VERSION = '4.12'
     STREAM_VERSION = '1.1.9'
 }

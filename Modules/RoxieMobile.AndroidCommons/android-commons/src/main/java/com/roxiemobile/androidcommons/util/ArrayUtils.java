@@ -1,8 +1,8 @@
 package com.roxiemobile.androidcommons.util;
 
-import android.support.annotation.NonNull;
-
 import com.roxiemobile.androidcommons.diagnostics.Guard;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Array;
 
@@ -148,7 +148,7 @@ public final class ArrayUtils
     /**
      * Returns the given array if it is non {@code null}; the empty array otherwise.
      */
-    public static <T> T[] nullToEmpty(T[] array, @NonNull Class<T[]> classOfT) {
+    public static <T> T[] nullToEmpty(T[] array, @NotNull Class<T[]> classOfT) {
         Guard.notNull(classOfT, "classOfT is null");
         return (array != null) ? array : classOfT.cast(Array.newInstance(classOfT.getComponentType(), 0));
     }

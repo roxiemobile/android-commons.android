@@ -1,7 +1,5 @@
 package com.roxiemobile.androidcommons.data.mapper.adapter;
 
-import android.support.annotation.NonNull;
-
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 import com.google.gson.Gson;
@@ -13,6 +11,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import com.roxiemobile.androidcommons.data.CommonKeys;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -97,7 +97,7 @@ public class EnumTypeAdapterFactory implements TypeAdapterFactory
         }
 
         @Override
-        public T getValueForKey(@NonNull String key) {
+        public T getValueForKey(@NotNull String key) {
             return mNameToConstant.get(key);
         }
 

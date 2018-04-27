@@ -1,11 +1,11 @@
 package com.roxiemobile.androidcommons.util;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.annimon.stream.Stream;
 import com.roxiemobile.androidcommons.data.Constants.Charsets;
 import com.roxiemobile.androidcommons.diagnostics.Guard;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -340,7 +340,7 @@ public final class StringUtils
     /**
      * Returns the given string if it is non {@code null}; the empty string otherwise.
      */
-    public static @NonNull String nullToEmpty(final @Nullable String value) {
+    public static @NotNull String nullToEmpty(final @Nullable String value) {
         return (value == null) ? "" : value;
     }
 
@@ -349,15 +349,15 @@ public final class StringUtils
     /**
      * TODO
      */
-    public static @NonNull String streamToString(final @NonNull InputStream input) throws IOException {
+    public static @NotNull String streamToString(final @NotNull InputStream input) throws IOException {
         return streamToString(input, Charsets.UTF_8);
     }
 
     /**
      * TODO
      */
-    public static @NonNull String streamToString(
-            final @NonNull InputStream input, final @NonNull Charset charset) throws IOException {
+    public static @NotNull String streamToString(
+            final @NotNull InputStream input, final @NotNull Charset charset) throws IOException {
 
         Guard.notNull(input, "input is null");
         Guard.notNull(charset, "charset is null");

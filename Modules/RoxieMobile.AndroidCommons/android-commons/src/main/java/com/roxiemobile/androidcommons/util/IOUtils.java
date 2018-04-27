@@ -1,11 +1,12 @@
 package com.roxiemobile.androidcommons.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Base64;
 
 import com.roxiemobile.androidcommons.diagnostics.Guard;
 import com.roxiemobile.androidcommons.logging.Logger;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -31,7 +32,7 @@ public final class IOUtils
     /**
      * TODO
      */
-    public static byte[] loadAsset(@NonNull Context context, @NonNull String path) {
+    public static byte[] loadAsset(@NotNull Context context, @NotNull String path) {
         Guard.notNull(context, "context is null");
         Guard.notEmpty(path, "path is empty");
 
@@ -58,7 +59,7 @@ public final class IOUtils
     /**
      * TODO
      */
-    public static String loadAssetAsString(@NonNull Context context, @NonNull String path, Charset charset) {
+    public static String loadAssetAsString(@NotNull Context context, @NotNull String path, Charset charset) {
         String content = null;
 
         byte[] buffer = loadAsset(context, path);
@@ -119,7 +120,7 @@ public final class IOUtils
     /**
      * Write the object to a Base64 string.
      */
-    public static String encodeObject(@NonNull Serializable object, String defaultValue) {
+    public static String encodeObject(@NotNull Serializable object, String defaultValue) {
         Guard.notNull(object, "object is null");
 
         ObjectOutputStream oos = null;
@@ -139,14 +140,14 @@ public final class IOUtils
         return str;
     }
 
-    public static String encodeObject(@NonNull Serializable obj) {
+    public static String encodeObject(@NotNull Serializable obj) {
         return encodeObject(obj, null);
     }
 
     /**
      * Read the object from Base64 string.
      */
-    public static Object decodeObject(@NonNull String string, Object defaultObject) {
+    public static Object decodeObject(@NotNull String string, Object defaultObject) {
         Guard.notEmpty(string, "string is empty");
 
         ObjectInputStream ois = null;
@@ -165,7 +166,7 @@ public final class IOUtils
         return obj;
     }
 
-    public static Object decodeObject(@NonNull String str) {
+    public static Object decodeObject(@NotNull String str) {
         return decodeObject(str, null);
     }
 

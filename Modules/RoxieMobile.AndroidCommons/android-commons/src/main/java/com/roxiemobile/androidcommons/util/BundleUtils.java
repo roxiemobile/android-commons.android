@@ -1,10 +1,11 @@
 package com.roxiemobile.androidcommons.util;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 
 import com.roxiemobile.androidcommons.diagnostics.Guard;
 import com.roxiemobile.androidcommons.logging.Logger;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -97,7 +98,7 @@ public final class BundleUtils
      * Inserts a Object array value into the mapping of this Bundle, replacing
      * any existing value for the given key.  Value may be {@code null}.
      */
-    public static <T extends Serializable> void putSerializableList(@NonNull Bundle bundle, String key, T[] value) {
+    public static <T extends Serializable> void putSerializableList(@NotNull Bundle bundle, String key, T[] value) {
         Guard.notNull(bundle, "bundle is null");
 
         if (value != null) {
@@ -148,7 +149,7 @@ public final class BundleUtils
      * Inserts an List<T> value into the mapping of this Bundle, replacing
      * any existing value for the given key.  Key may be null.
      */
-    public static <T extends Serializable> void putSerializableArrayList(@NonNull Bundle bundle, String key, List<T> value) {
+    public static <T extends Serializable> void putSerializableArrayList(@NotNull Bundle bundle, String key, List<T> value) {
         Guard.notNull(bundle, "bundle is null");
 
         if (value != null) {

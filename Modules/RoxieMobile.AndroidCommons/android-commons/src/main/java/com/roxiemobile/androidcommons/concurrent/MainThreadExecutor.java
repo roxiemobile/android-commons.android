@@ -1,6 +1,6 @@
 package com.roxiemobile.androidcommons.concurrent;
 
-import android.support.annotation.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
@@ -30,7 +30,7 @@ public final class MainThreadExecutor extends AbstractExecutorService
 // MARK: - Methods
 
     @Override
-    public void execute(@NonNull Runnable runnable) {
+    public void execute(@NotNull Runnable runnable) {
         ThreadUtils.runOnUiThread(runnable);
     }
 
@@ -48,7 +48,7 @@ public final class MainThreadExecutor extends AbstractExecutorService
      */
     @Deprecated
     @Override
-    public @NonNull List<Runnable> shutdownNow() {
+    public @NotNull List<Runnable> shutdownNow() {
         throw new UnsupportedOperationException();
     }
 
@@ -67,7 +67,7 @@ public final class MainThreadExecutor extends AbstractExecutorService
      */
     @Deprecated
     @Override
-    public boolean awaitTermination(long l, @NonNull TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long l, @NotNull TimeUnit timeUnit) throws InterruptedException {
         throw new UnsupportedOperationException();
     }
 }
