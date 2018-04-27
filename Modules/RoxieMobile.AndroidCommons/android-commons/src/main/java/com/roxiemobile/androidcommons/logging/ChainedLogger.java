@@ -1,6 +1,5 @@
 package com.roxiemobile.androidcommons.logging;
 
-import com.annimon.stream.Stream;
 import com.roxiemobile.androidcommons.logging.Logger.Contract;
 
 import java.util.Arrays;
@@ -20,47 +19,65 @@ public final class ChainedLogger implements Logger.Contract
 
     @Override
     public void v(String tag, String msg) {
-        Stream.of(mLoggers).forEach(logger -> logger.v(tag, msg));
+        for (Contract logger : mLoggers) {
+            logger.v(tag, msg);
+        }
     }
 
     @Override
     public void d(String tag, String msg) {
-        Stream.of(mLoggers).forEach(logger -> logger.d(tag, msg));
+        for (Contract logger : mLoggers) {
+            logger.d(tag, msg);
+        }
     }
 
     @Override
     public void i(String tag, String msg) {
-        Stream.of(mLoggers).forEach(logger -> logger.i(tag, msg));
+        for (Contract logger : mLoggers) {
+            logger.i(tag, msg);
+        }
     }
 
     @Override
     public void w(String tag, String msg) {
-        Stream.of(mLoggers).forEach(logger -> logger.w(tag, msg));
+        for (Contract logger : mLoggers) {
+            logger.w(tag, msg);
+        }
     }
 
     @Override
     public void w(String tag, String msg, Throwable err) {
-        Stream.of(mLoggers).forEach(logger -> logger.w(tag, msg, err));
+        for (Contract logger : mLoggers) {
+            logger.w(tag, msg, err);
+        }
     }
 
     @Override
     public void w(String tag, Throwable err) {
-        Stream.of(mLoggers).forEach(logger -> logger.w(tag, err));
+        for (Contract logger : mLoggers) {
+            logger.w(tag, err);
+        }
     }
 
     @Override
     public void e(String tag, String msg) {
-        Stream.of(mLoggers).forEach(logger -> logger.e(tag, msg));
+        for (Contract logger : mLoggers) {
+            logger.e(tag, msg);
+        }
     }
 
     @Override
     public void e(String tag, String msg, Throwable err) {
-        Stream.of(mLoggers).forEach(logger -> logger.e(tag, msg, err));
+        for (Contract logger : mLoggers) {
+            logger.e(tag, msg, err);
+        }
     }
 
     @Override
     public void e(String tag, Throwable err) {
-        Stream.of(mLoggers).forEach(logger -> logger.e(tag, err));
+        for (Contract logger : mLoggers) {
+            logger.e(tag, err);
+        }
     }
 
 // MARK: - Variables
