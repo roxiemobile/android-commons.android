@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -33,23 +32,23 @@ android {
 dependencies {
 
     // Kotlin
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$KOTLIN_VERSION"
 
     // Gson
     final GSON_VERSION = rootProject.ext.GSON_VERSION
-    compile "com.google.code.gson:gson:$GSON_VERSION"
+    api "com.google.code.gson:gson:$GSON_VERSION"
 
     // JetBrains Java Annotations
     final JETBRAINS_ANNOTATIONS_VERSION = rootProject.ext.JETBRAINS_ANNOTATIONS_VERSION
-    compile "org.jetbrains:annotations:$JETBRAINS_ANNOTATIONS_VERSION"
+    api "org.jetbrains:annotations:$JETBRAINS_ANNOTATIONS_VERSION"
 
     // Stream
     final STREAM_VERSION = rootProject.ext.STREAM_VERSION
-    compile "com.annimon:stream:$STREAM_VERSION"
+    implementation "com.annimon:stream:$STREAM_VERSION"
 
     // JUnit
     final JUNIT_VERSION = rootProject.ext.JUNIT_VERSION
-    testCompile "junit:junit:$JUNIT_VERSION"
+    testImplementation "junit:junit:$JUNIT_VERSION"
 }
 
 // Deploy to Bintray

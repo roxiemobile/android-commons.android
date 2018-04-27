@@ -2,12 +2,12 @@ buildscript {
     ext.KOTLIN_VERSION = '1.2.30'
 
     repositories {
+        google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'com.android.tools.build:gradle:3.1.0'
 
         // Kotlin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$KOTLIN_VERSION"
@@ -20,7 +20,7 @@ buildscript {
 
 allprojects {
     repositories {
-        maven { url "https://maven.google.com" }
+        google()
         jcenter()
     }
 }
@@ -28,18 +28,18 @@ allprojects {
 // Controlling Android properties of all your modules from the main project
 // @link http://tools.android.com/tech-docs/new-build-system/tips
 ext {
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.3'
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
 
     minSdkVersion = 16
-    targetSdkVersion = 26
+    targetSdkVersion = 27
 
     // Shared Dependencies
-    ANDROID_SUPPORT_VERSION = '27.0.2'
+    ANDROID_SUPPORT_VERSION = '27.1.1'
     GSON_VERSION = '2.8.2'
     JETBRAINS_ANNOTATIONS_VERSION = '16.0.1'
     JUNIT_VERSION = '4.12'
-    STREAM_VERSION = '1.1.9'
+    STREAM_VERSION = '1.2.0'
 }
 
 task clean(type: Delete) {
