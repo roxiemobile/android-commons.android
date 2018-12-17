@@ -8,8 +8,9 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 16
-        versionName '0.8.4'
+
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
     }
 
     compileOptions {
