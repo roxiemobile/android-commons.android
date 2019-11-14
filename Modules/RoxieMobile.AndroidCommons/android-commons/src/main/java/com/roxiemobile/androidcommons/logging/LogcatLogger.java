@@ -2,6 +2,8 @@ package com.roxiemobile.androidcommons.logging;
 
 import android.util.Log;
 
+import java.util.concurrent.Callable;
+
 public final class LogcatLogger implements Logger.Contract
 {
 // MARK: - Methods
@@ -14,6 +16,18 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
+    public void v(String tag, Callable<String> target) {
+        if (tag != null) {
+            try {
+                Log.v(cropTag(tag), target.call());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public void d(String tag, String msg) {
         if (tag != null && msg != null) {
             Log.d(cropTag(tag), msg);
@@ -21,9 +35,33 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
+    public void d(String tag, Callable<String> target) {
+        if (tag != null) {
+            try {
+                Log.d(cropTag(tag), target.call());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public void i(String tag, String msg) {
         if (tag != null && msg != null) {
             Log.i(cropTag(tag), msg);
+        }
+    }
+
+    @Override
+    public void i(String tag, Callable<String> target) {
+        if (tag != null) {
+            try {
+                Log.i(cropTag(tag), target.call());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -49,6 +87,30 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
+    public void w(String tag, Callable<String> target) {
+        if (tag != null) {
+            try {
+                Log.w(cropTag(tag), target.call());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void w(String tag, Callable<String> target, Throwable err) {
+        if (tag != null) {
+            try {
+                Log.w(cropTag(tag), target.call(), err);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public void e(String tag, String msg) {
         if (tag != null && msg != null) {
             Log.e(cropTag(tag), msg);
@@ -66,6 +128,30 @@ public final class LogcatLogger implements Logger.Contract
     public void e(String tag, Throwable err) {
         if (tag != null) {
             Log.e(cropTag(tag), Log.getStackTraceString(err));
+        }
+    }
+
+    @Override
+    public void e(String tag, Callable<String> target) {
+        if (tag != null) {
+            try {
+                Log.e(cropTag(tag), target.call());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void e(String tag, Callable<String> target, Throwable err) {
+        if (tag != null) {
+            try {
+                Log.e(cropTag(tag), target.call(), err);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
