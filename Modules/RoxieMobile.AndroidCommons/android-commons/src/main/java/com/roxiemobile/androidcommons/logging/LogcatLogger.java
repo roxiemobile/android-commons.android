@@ -16,14 +16,12 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
-    public void v(String tag, Callable<String> target) {
-        if (tag != null) {
-            try {
-                Log.v(cropTag(tag), target.call());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void v(String tag, Callable<String> task) {
+        try {
+            this.v(tag, task.call());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -35,14 +33,12 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
-    public void d(String tag, Callable<String> target) {
-        if (tag != null) {
-            try {
-                Log.d(cropTag(tag), target.call());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void d(String tag, Callable<String> task) {
+        try {
+            this.d(tag, task.call());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -54,14 +50,12 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
-    public void i(String tag, Callable<String> target) {
-        if (tag != null) {
-            try {
-                Log.i(cropTag(tag), target.call());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void i(String tag, Callable<String> task) {
+        try {
+            this.i(tag, task.call());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -87,26 +81,22 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
-    public void w(String tag, Callable<String> target) {
-        if (tag != null) {
-            try {
-                Log.w(cropTag(tag), target.call());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void w(String tag, Callable<String> task) {
+        try {
+            this.w(tag, task.call());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void w(String tag, Callable<String> target, Throwable err) {
-        if (tag != null) {
-            try {
-                Log.w(cropTag(tag), target.call(), err);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void w(String tag, Callable<String> task, Throwable err) {
+        try {
+            this.w(tag, task.call(), err);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -132,26 +122,22 @@ public final class LogcatLogger implements Logger.Contract
     }
 
     @Override
-    public void e(String tag, Callable<String> target) {
-        if (tag != null) {
-            try {
-                Log.e(cropTag(tag), target.call());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void e(String tag, Callable<String> task) {
+        try {
+            this.e(tag, task.call());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
-    public void e(String tag, Callable<String> target, Throwable err) {
-        if (tag != null) {
-            try {
-                Log.e(cropTag(tag), target.call(), err);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+    public void e(String tag, Callable<String> task, Throwable err) {
+        try {
+            this.e(tag, task.call(), err);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

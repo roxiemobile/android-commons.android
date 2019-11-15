@@ -26,9 +26,9 @@ public final class ChainedLogger implements Logger.Contract
     }
 
     @Override
-    public void v(String tag, Callable<String> target) {
+    public void v(String tag, Callable<String> task) {
         for (Contract logger : mLoggers) {
-            logger.v(tag, target);
+            logger.v(tag, task);
         }
     }
 
@@ -40,9 +40,9 @@ public final class ChainedLogger implements Logger.Contract
     }
 
     @Override
-    public void d(String tag, Callable<String> target) {
+    public void d(String tag, Callable<String> task) {
         for (Contract logger : mLoggers) {
-            logger.d(tag, target);
+            logger.d(tag, task);
         }
     }
 
@@ -54,9 +54,9 @@ public final class ChainedLogger implements Logger.Contract
     }
 
     @Override
-    public void i(String tag, Callable<String> target) {
+    public void i(String tag, Callable<String> task) {
         for (Contract logger : mLoggers) {
-            logger.i(tag, target);
+            logger.i(tag, task);
         }
     }
 
@@ -82,16 +82,16 @@ public final class ChainedLogger implements Logger.Contract
     }
 
     @Override
-    public void w(String tag, Callable<String> target) {
+    public void w(String tag, Callable<String> task) {
         for (Contract logger : mLoggers) {
-            logger.w(tag, target);
+            logger.w(tag, task);
         }
     }
 
     @Override
-    public void w(String tag, Callable<String> target, Throwable err) {
+    public void w(String tag, Callable<String> task, Throwable err) {
         for (Contract logger : mLoggers) {
-            logger.w(tag, target, err);
+            logger.w(tag, task, err);
         }
     }
 
@@ -117,16 +117,16 @@ public final class ChainedLogger implements Logger.Contract
     }
 
     @Override
-    public void e(String tag, Callable<String> target) {
+    public void e(String tag, Callable<String> task) {
         for (Contract logger : mLoggers) {
-            logger.e(tag, target);
+            logger.e(tag, task);
         }
     }
 
     @Override
-    public void e(String tag, Callable<String> target, Throwable err) {
+    public void e(String tag, Callable<String> task, Throwable err) {
         for (Contract logger : mLoggers) {
-            logger.e(tag, target, err);
+            logger.e(tag, task, err);
         }
     }
 

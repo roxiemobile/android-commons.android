@@ -56,16 +56,11 @@ public final class Logger
         }
     }
 
-    public static void v(String tag, Callable<String> target) {
+    public static void v(String tag, Callable<String> task) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Verbose)) {
-            try {
-                logger.v(tag, target);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.v(tag, task);
         }
     }
 
@@ -77,16 +72,11 @@ public final class Logger
         }
     }
 
-    public static void d(String tag, Callable<String> target) {
+    public static void d(String tag, Callable<String> task) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Debug)) {
-            try {
-                logger.d(tag, target);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.d(tag, task);
         }
     }
 
@@ -98,16 +88,11 @@ public final class Logger
         }
     }
 
-    public static void i(String tag, Callable<String> target) {
+    public static void i(String tag, Callable<String> task) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Info)) {
-            try {
-                logger.i(tag, target);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.i(tag, task);
         }
     }
 
@@ -135,29 +120,19 @@ public final class Logger
         }
     }
 
-    public static void w(String tag, Callable<String> target) {
+    public static void w(String tag, Callable<String> task) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Warning)) {
-            try {
-                logger.w(tag, target);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.w(tag, task);
         }
     }
 
-    public static void w(String tag, Callable<String> target, Throwable err) {
+    public static void w(String tag, Callable<String> task, Throwable err) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Warning)) {
-            try {
-                logger.w(tag, target, err);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.w(tag, task, err);
         }
     }
 
@@ -185,29 +160,19 @@ public final class Logger
         }
     }
 
-    public static void e(String tag, Callable<String> target) {
+    public static void e(String tag, Callable<String> task) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Error)) {
-            try {
-                logger.e(tag, target);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.e(tag, task);
         }
     }
 
-    public static void e(String tag, Callable<String> target, Throwable err) {
+    public static void e(String tag, Callable<String> task, Throwable err) {
         Logger.Contract logger = shared().logger();
 
         if (logger != null && isLoggable(LogLevel.Error)) {
-            try {
-                logger.e(tag, target, err);
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            logger.e(tag, task, err);
         }
     }
 
@@ -219,24 +184,32 @@ public final class Logger
 
 // MARK: - Inner Types
 
-    public interface Contract
+    public interface Contract extends TaskExtendedContract, CommonContract
+    {
+    }
+
+    public interface CommonContract
     {
         void v(String tag, String msg);
-        void v(String tag, Callable<String> target);
         void d(String tag, String msg);
-        void d(String tag, Callable<String> target);
         void i(String tag, String msg);
-        void i(String tag, Callable<String> target);
         void w(String tag, String msg);
         void w(String tag, String msg, Throwable err);
         void w(String tag, Throwable err);
-        void w(String tag, Callable<String> target);
-        void w(String tag, Callable<String> target, Throwable err);
         void e(String tag, String msg);
         void e(String tag, String msg, Throwable err);
         void e(String tag, Throwable err);
-        void e(String tag, Callable<String> target);
-        void e(String tag, Callable<String> target, Throwable err);
+    }
+
+    public interface TaskExtendedContract
+    {
+        void v(String tag, Callable<String> task);
+        void d(String tag, Callable<String> task);
+        void i(String tag, Callable<String> task);
+        void w(String tag, Callable<String> task);
+        void w(String tag, Callable<String> task, Throwable err);
+        void e(String tag, Callable<String> task);
+        void e(String tag, Callable<String> task, Throwable err);
     }
 
     public enum LogLevel
