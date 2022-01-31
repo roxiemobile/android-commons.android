@@ -48,5 +48,5 @@ dependencies {
     testImplementation "junit:junit:$JUNIT_VERSION"
 }
 
-// Deploy to Bintray
-apply from: 'tools/push.gradle'
+// Publish an AAR library to a Maven repository
+apply from: 'tools/publish.gradle'
